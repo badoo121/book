@@ -1,0 +1,22 @@
+{% extends "user/layout.html"%}
+{% block content %}
+<br><br><hr>
+
+    <form action="" method="post">
+        <div class="mb-3">
+            <input type="text" name="fullname" placeholder="Your name" value="{% if userdeets %} {{userdeets.user_fullname}} {%endif%}">
+        </div>
+        <div class="mb-3">
+            <input type="text" name="email" placeholder="Your email" value="{% if userdeets %} {{userdeets.user_email}} {%endif%}">
+        </div>
+        <div class="mb-3">
+            <input type="number" name="amount" placeholder="amount">
+        </div>
+        <div class="mb-3">
+            <input type="hidden" value="{{csrf_token()}}" name="csrf_token">
+            <input type="hidden" value="{% if userdeets %} {{userdeets.user_email}} {%endif%}">
+            <button class="btn btn-primary"> continue </button>
+        </div>
+    </form>
+
+{%endblock%}
